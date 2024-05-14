@@ -1,0 +1,159 @@
+body {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  margin: 0; 
+  background-image: url('https://voices.uchicago.edu/zoombackgrounds/files/2019/04/UChicago_Aerial-Mansueto.jpg');
+  background-size: cover;
+  object-fit: cover;
+  background-position: center center; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(123, 17, 19, 0.5); /* Maroon with opacity for overlay */
+  z-index: 1;
+}
+
+.text-container {
+  color: white;
+  z-index: 2;
+}
+
+.input-form .form-control {
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 2.5em;
+  letter-spacing: 2px;
+  margin-top: 0.2em;
+  font-family: inhert;
+  margin-right: 0.2em;
+}
+
+.input-form .form-control:focus {
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+}
+
+.form-row-1 > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.form-row-2 > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.form-row-2 {
+  margin-top: -3em;
+}
+
+.time_input {
+  color: white;
+}
+
+.form-control {
+    text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  margin-right: 1rem;
+}
+
+p {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  margin-right: 1rem;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
+  background-color: transparent;
+  color: white;
+}
+
+.su {
+  padding-top: 5em;
+}
+
+.sub {
+  background-color: transparent;
+  border-color: white;
+  color: white;
+  padding: 1rem 1rem;
+  cursor: pointer;
+  width: 90%;
+  font-size: 2rem;
+  box-shadow: none;
+  font-family: inhert;
+  opacity: 0;
+  animation: fade-in-2 0.5s ease-in-out 4.3s forwards;
+}
+
+.sub:hover {
+  background-color: white;
+  color: maroon;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fade-in 0.5s ease-in-out 2s forwards;
+}
+
+.fade-in-1 {
+  opacity: 0;
+  animation: fade-in 0.5s ease-in-out 2.8s forwards;
+}
+
+.fade-in-2 {
+  opacity: 0;
+  animation: fade-in 0.5s ease-in-out 3.7s forwards;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateX(-5%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-2 {
+  from {
+    transform: translateY(5%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

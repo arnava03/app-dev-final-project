@@ -1,0 +1,83 @@
+<nav class="navbar">
+<div class="back">
+    <a href="/" class="bTn">Back</a>
+</div>
+  <form class="input-form" name="myForm" method="post" action="/submit">
+    <p id="typing-text">I want to find an empty room on</p>
+    <div class="fade-in">
+        <label for="date-input"></label>
+        <input type="date" class="form-control" name="date" id="myDate" value="<%= params.fetch("date")%>" required>
+    </div>
+    <p id="typing-text-1"> at</p>
+    <div class="fade-in-1">
+        <label for="time-input"></label>
+        <input type="time" class="form-control" name="time" id="myTime"  value="<%= params.fetch("time")%>"  required>
+    </div>
+    <p id="typing-text-2">and near</p>
+    <div class="fade-in-2">
+        <label for="place-select"></label>
+        <select class="form-control" name="place" id="myPlace" required>
+            <% Building.all.where.not(xcoord: '').order(:name).each do |building| %>
+                <option class="<%= building.name %>" value="<%= building.name %>" <%= params.fetch("place") == building.name ? 'selected' : '' %>><%= building.name %></option>
+            <% end %>
+            
+            
+        </select> 
+    </div>
+  </form>
+  <div class="back">
+    <a href="#" onclick="submitForm()" class="bTn" id="myBtn">Refresh</a>
+</div>
+  
+  
+</nav>
+<table class="styled-table" border="1">
+  <thead> 
+    <tr>
+        <th>
+          Building
+        </th>
+        <th>
+          Classroom
+        </th>
+        <th>
+          Free Until
+        </th>
+        <th>
+          Directions
+        </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sorted_classrooms.each do |classes| %>
+    <% latitude = classes.building.xcoord %>
+          <% longitude = classes.building.ycoord %>
+          <% google_maps_link = "https://www.google.com/maps/dir/?api=1&destination=#{latitude},#{longitude}" %>
+      <tr onclick="window.open('<%= google_maps_link %>','_blank');">
+
+       <% next_meeting = Meeting.where(classroom_id: classes.id, day: @day_temp).where("start_time > ?", @time_new_temp).order(:start_time).first %>
+
+        <th>
+          <%= classes.building.name %>
+        </th>
+        <th>
+          <%= classes.name %>
+        </th>
+        <th>
+           <% if next_meeting.present? %>
+           <% start_time = next_meeting.start_time %>
+           <% hours_left =  start_time.hour - Time.parse(@time_temp).hour %>
+           <% minutes_left = start_time.min - Time.parse(@time_temp).min %>
+           <% frac_left = (minutes_left.to_f/60).round(1) %>
+        <%= next_meeting.start_time.strftime("%H:%M") %> (<%= hours_left + frac_left %> hrs left)
+            <% else %>
+                Free all day
+            <% end %>
+        </th>
+        <th>
+          <a href=<%= google_maps_link %> target="_blank">Click here</a>
+        </th>
+      </tr>
+    <%end%>
+  </tbody>
+</table>

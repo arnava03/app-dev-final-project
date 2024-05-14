@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Classroom #<%= @the_classroom.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/classrooms">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_classroom/<%= @the_classroom.id %>">
+          Delete classroom
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_classroom.name %>
+      </dd>
+
+      <dt>
+        Building
+      </dt>
+      <dd>
+        <%= @the_classroom.building_id %>
+      </dd>
+
+      <dt>
+        Meetings count
+      </dt>
+      <dd>
+        <%= @the_classroom.meetings_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_classroom.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_classroom.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit classroom
+    </h2>
+
+    <form action="/modify_classroom/<%= @the_classroom.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_classroom.name %>">
+      </div>
+
+      <div>
+        <label for="building_id_box">
+          Building
+        </label>
+
+        <input type="text" id="building_id_box" name="query_building_id" value="<%= @the_classroom.building_id %>">
+      </div>
+
+      <div>
+        <label for="meetings_count_box">
+          Meetings count
+        </label>
+
+        <input type="text" id="meetings_count_box" name="query_meetings_count" value="<%= @the_classroom.meetings_count %>">
+      </div>
+
+      <button>
+        Update classroom
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

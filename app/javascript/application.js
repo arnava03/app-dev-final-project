@@ -3,3 +3,6 @@ import { Turbo } from "@hotwired/turbo-rails"
 import "controllers"
 
 Turbo.session.drive = false
+//= require index2.js
+//= require script.js
+//= require jquery

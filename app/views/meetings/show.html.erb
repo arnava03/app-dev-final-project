@@ -1,0 +1,161 @@
+<div>
+  <div>
+    <h1>
+      Meeting #<%= @the_meeting.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/meetings">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_meeting/<%= @the_meeting.id %>">
+          Delete meeting
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Day
+      </dt>
+      <dd>
+        <%= @the_meeting.day %>
+      </dd>
+
+      <dt>
+        Start time
+      </dt>
+      <dd>
+        <%= @the_meeting.start_time %>
+      </dd>
+
+      <dt>
+        End time
+      </dt>
+      <dd>
+        <%= @the_meeting.end_time %>
+      </dd>
+
+      <dt>
+        Classroom
+      </dt>
+      <dd>
+        <%= @the_meeting.classroom_id %>
+      </dd>
+
+      <dt>
+        Department
+      </dt>
+      <dd>
+        <%= @the_meeting.department %>
+      </dd>
+
+      <dt>
+        Coursenum
+      </dt>
+      <dd>
+        <%= @the_meeting.coursenum %>
+      </dd>
+
+      <dt>
+        Coursename
+      </dt>
+      <dd>
+        <%= @the_meeting.coursename %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_meeting.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_meeting.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit meeting
+    </h2>
+
+    <form action="/modify_meeting/<%= @the_meeting.id %>"  method="post" >
+      <div>
+        <label for="day_box">
+          Day
+        </label>
+
+        <input type="text" id="day_box" name="query_day" value="<%= @the_meeting.day %>">
+      </div>
+
+      <div>
+        <label for="start_time_box">
+          Start time
+        </label>
+
+        <input type="time" id="start_time_box" name="query_start_time" value="<%= @the_meeting.start_time %>">
+      </div>
+
+      <div>
+        <label for="end_time_box">
+          End time
+        </label>
+
+        <input type="time" id="end_time_box" name="query_end_time" value="<%= @the_meeting.end_time %>">
+      </div>
+
+      <div>
+        <label for="classroom_id_box">
+          Classroom
+        </label>
+
+        <input type="text" id="classroom_id_box" name="query_classroom_id" value="<%= @the_meeting.classroom_id %>">
+      </div>
+
+      <div>
+        <label for="department_box">
+          Department
+        </label>
+
+        <input type="text" id="department_box" name="query_department" value="<%= @the_meeting.department %>">
+      </div>
+
+      <div>
+        <label for="coursenum_box">
+          Coursenum
+        </label>
+
+        <input type="text" id="coursenum_box" name="query_coursenum" value="<%= @the_meeting.coursenum %>">
+      </div>
+
+      <div>
+        <label for="coursename_box">
+          Coursename
+        </label>
+
+        <input type="text" id="coursename_box" name="query_coursename" value="<%= @the_meeting.coursename %>">
+      </div>
+
+      <button>
+        Update meeting
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all classrooms
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new classroom
+    </h2>
+
+    <form action="/insert_classroom" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="building_id_box">
+          Building
+        </label>
+
+        <input type="text" id="building_id_box" name="query_building_id">
+      </div>
+
+      <div>
+        <label for="meetings_count_box">
+          Meetings count
+        </label>
+
+        <input type="text" id="meetings_count_box" name="query_meetings_count">
+      </div>
+
+      <button>
+        Create classroom
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Building
+        </th>
+
+        <th>
+          Meetings count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_classrooms.each do |a_classroom| %>
+      <tr>
+        <td>
+          <%= a_classroom.id %>
+        </td>
+
+        <td>
+          <%= a_classroom.name %>
+        </td>
+
+        <td>
+          <%= a_classroom.building_id %>
+        </td>
+
+        <td>
+          <%= a_classroom.meetings_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_classroom.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_classroom.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/classrooms/<%= a_classroom.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,146 @@
+body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: maroon;
+  color: white;
+  padding: 15px 20px; 
+  z-index: 1000;
+  font-size: 27px;
+  display: flex;
+  justify-content: space-between; 
+  margin-left: 0;
+  margin-right: 0; 
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px; 
+}
+
+.back {
+  display: inline-block;
+  padding: 5px 30px;
+  border-radius: 20px;
+  font-size: 20px;
+  background-color: white;
+  border: 2px solid white;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.back:hover {
+  background-color: maroon;
+  border-color: white;
+}
+
+.back:hover .bTn {
+  color: white; /* Change text color to white on hover */
+}
+
+.back .bTn {
+  color: maroon;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.input-form {
+  display: flex;
+  align-items: center;
+}
+
+.input-form p,
+.input-form label,
+.input-form input,
+.input-form select,
+.input-form input[type="submit"] {
+  margin: 0 2px;
+}
+
+.input-form .form-control {
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid white;
+  background-color: transparent;
+  color: white;
+  letter-spacing: 2px;
+  margin-top: 0.2em;
+  font-size: 17px;
+  margin-right: 0.2em;
+}
+
+.input-form select {
+  max-width: 200px;
+}
+
+.su {
+  margin-left: 2em;
+}
+
+.sub {
+  margin-right: 0;
+  background-color: transparent;
+  border-color: white;
+  color: white;
+  cursor: pointer;
+  box-shadow: none;
+  font-family: inhert;
+  padding-left: 3em;
+  padding-right: 3em;
+  font-size: 17px;
+}
+
+.sub:hover {
+  background-color: white;
+  color: maroon;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  justify-content: center;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px auto; /* Center the table horizontally and add 25px margin at the top and bottom */
+  font-size: 0.9em;
+  font-family: sans-serif;
+  width: 80%; /* Set the width of the table to 80% of the viewport width */
+  max-width: 800px; /* Set a maximum width for the table */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: maroon;
+  color: white;
+  text-align: center;
+}
+
+.styled-table th,
+.styled-table th {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+  cursor: pointer;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid maroon;
+}
+
+
+.styled-table tbody tr:hover {
+  font-weight: bold;
+  background-color: rgba(128, 128, 128, 0.6);;
+}

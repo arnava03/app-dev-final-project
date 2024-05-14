@@ -6,11 +6,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <% if (controller_name == 'miscellaneous') && (action_name == 'home') %>
+      <%= stylesheet_link_tag 'styles.css' %>
+    <% end %>
+    <% if (controller_name == 'meetings') && (action_name == 'index') %>
+     <%= stylesheet_link_tag 'index.css' %>
+    <% end %>
   </head>
 
   <body>
     <%= yield %>
+    <% if (controller_name == 'miscellaneous') && (action_name == 'home') %>
+    <%= pp "bruh2" %>
+     <%= javascript_include_tag 'script.js' %>
+    <% end %> 
+    <% if (controller_name == 'meetings') && (action_name == 'index') %>
+      <%= pp "bruh" %>
+     <%= javascript_include_tag 'index2.js' %>
+    <% end %> 
+
   </body>
 </html>

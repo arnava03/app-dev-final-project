@@ -10,5 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_13_052500) do
+  create_table "buildings", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "classrooms_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "xcoord"
+    t.string "ycoord"
+  end
+
+  create_table "classrooms", force: :cascade do |t|
+    t.string "name"
+    t.integer "building_id"
+    t.integer "meetings_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.string "day"
+    t.time "start_time"
+    t.time "end_time"
+    t.integer "classroom_id"
+    t.string "department"
+    t.string "coursenum"
+    t.string "coursename"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
