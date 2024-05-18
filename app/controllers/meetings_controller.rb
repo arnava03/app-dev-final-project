@@ -1,8 +1,8 @@
 class MeetingsController < ApplicationController
   def index
 
-    place = params.fetch("place")
-    building = Building.find_by(name: place)
+    place = params.fetch("building_id")
+    building = Building.find_by(id: place)
 
     given_x = building.xcoord.to_f
     given_y = building.ycoord.to_f

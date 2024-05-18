@@ -16,15 +16,12 @@
           <p id="typing-text-2">and near</p>
           <div class="fade-in-2">
               <label for="place-select"></label>
-              <select class="form-control" name="place" id="myPlace" required>
+              <select class="form-control" name="building_id" id="myPlace" required>
                   <option class="selector" value="">this building</option>
-                  <option class="selector" value="Cobb Hall">Cobb Hall</option>
-                  <option value="Harper Mem Library">Harper Mem Library</option>
-                  <option value="Rosenwald Hall">Rosenwald Hall</option>
-                  <option value="Hutchinson Commons">Hutchinson Commons</option>
-                  <option value="Regenstein Library">Regenstein Library</option>
-                  <option value="Logan Center">Logan Center</option>
-                  <option value="Campus North Res Commons">Campus North Res Commons</option>
+
+                  <% Building.all.where.not(xcoord: '').order(:name).each do |building| %>
+                    <option class="<%= building.id %>" value="<%= building.id %>"><%= building.name %></option>
+                <% end %>
               </select> 
           </div>
       </div>

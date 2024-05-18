@@ -16,9 +16,9 @@
     <p id="typing-text-2">and near</p>
     <div class="fade-in-2">
         <label for="place-select"></label>
-        <select class="form-control" name="place" id="myPlace" required>
+        <select class="form-control" name="building_id" id="myPlace" required>
             <% Building.all.where.not(xcoord: '').order(:name).each do |building| %>
-                <option class="<%= building.name %>" value="<%= building.name %>" <%= params.fetch("place") == building.name ? 'selected' : '' %>><%= building.name %></option>
+                <option class="<%= building.id %>" value="<%= building.id %>" <%= params.fetch("building_id").to_i == building.id ? 'selected' : "" %>><%= building.name %></option>
             <% end %>
             
             

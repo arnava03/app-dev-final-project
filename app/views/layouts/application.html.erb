@@ -17,11 +17,9 @@
   <body>
     <%= yield %>
     <% if (controller_name == 'miscellaneous') && (action_name == 'home') %>
-    <%= pp "bruh2" %>
      <%= javascript_include_tag 'script.js' %>
     <% end %> 
     <% if (controller_name == 'meetings') && (action_name == 'index') %>
-      <%= pp "bruh" %>
      <%= javascript_include_tag 'index2.js' %>
     <% end %> 
 

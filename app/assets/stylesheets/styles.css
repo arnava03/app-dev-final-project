@@ -42,6 +42,10 @@ body::before {
   margin-right: 0.2em;
 }
 
+.form-control option {
+  font-size: 14px; /* Adjust the font size of the options */
+}
+
 .input-form .form-control:focus {
   box-shadow: none;
   outline: none;
